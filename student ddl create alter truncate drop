@@ -1,0 +1,40 @@
+mysql> create table student(studentregno int(3),name varchar(15),gender char(1),dob date,mobileno int(10),city varchar(15));
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> desc student;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentregno | int(3)      | YES  |     | NULL    |       |
+| name         | varchar(15) | YES  |     | NULL    |       |
+| gender       | char(1)     | YES  |     | NULL    |       |
+| dob          | date        | YES  |     | NULL    |       |
+| mobileno     | int(10)     | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.20 sec)
+
+mysql> alter table student add country varchar(40);
+Query OK, 0 rows affected (0.26 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentregno | int(3)      | YES  |     | NULL    |       |
+| name         | varchar(15) | YES  |     | NULL    |       |
+| gender       | char(1)     | YES  |     | NULL    |       |
+| dob          | date        | YES  |     | NULL    |       |
+| mobileno     | int(10)     | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
+| country      | varchar(40) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+mysql> truncate table student;
+Query OK, 0 rows affected (0.11 sec)
+mysql> truncate table student;
+Query OK, 0 rows affected (0.11 sec)
+mysql> drop table student;
+Query OK, 0 rows affected (0.33 sec)
