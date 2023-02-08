@@ -1,0 +1,52 @@
+mysql> create database faculty;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use faculty;
+Database changed
+mysql> create table faculty(facno varchar(4),facname varchar(15),gender char(1),dob date,doj date,mobileno int(10));
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | varchar(4)  | YES  |     | NULL    |       |
+| facname  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| doj      | date        | YES  |     | NULL    |       |
+| mobileno | int(10)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+mysql> alter table faculty add constraint pk_faculty primary key(facno,mobileno);
+Query OK, 0 rows affected (0.56 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | varchar(4)  | NO   | PRI |         |       |
+| facname  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| doj      | date        | YES  |     | NULL    |       |
+| mobileno | int(10)     | NO   | PRI | 0       |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.12 sec)
+mysql> alter table faculty add constraint unique(facname);
+Query OK, 0 rows affected (0.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | varchar(4)  | NO   | PRI |         |       |
+| facname  | varchar(15) | YES  | UNI | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| doj      | date        | YES  |     | NULL    |       |
+| mobileno | int(10)     | NO   | PRI | 0       |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
