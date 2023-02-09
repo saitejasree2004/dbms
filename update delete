@@ -1,0 +1,59 @@
+mysql> create database customer;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use customer;
+Database changed
+mysql> create table customer(name char(23),no int(34),id int(54));
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> desc customer;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| name  | char(23) | YES  |     | NULL    |       |
+| no    | int(34)  | YES  |     | NULL    |       |
+| id    | int(54)  | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+mysql> insert into customer value('sai',2345,5678);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customer value('teja',3456,7896);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into customer value('sree',2347,2134);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from customer;
++------+------+------+
+| name | no   | id   |
++------+------+------+
+| sai  | 2345 | 5678 |
+| teja | 3456 | 7896 |
+| sree | 2347 | 2134 |
++------+------+------+
+3 rows in set (0.01 sec)
+mysql> update customer set name='veena'where no=2345;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> select * from customer;
++-------+------+------+
+| name  | no   | id   |
++-------+------+------+
+| veena | 2345 | 5678 |
+| teja  | 3456 | 7896 |
+| sree  | 2347 | 2134 |
++-------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> delete from customer where no=2345;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from customer;
++------+------+------+
+| name | no   | id   |
++------+------+------+
+| teja | 3456 | 7896 |
+| sree | 2347 | 2134 |
++------+------+------+
+2 rows in set (0.00 sec)
