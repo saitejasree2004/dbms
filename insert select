@@ -1,0 +1,35 @@
+mysql> create database cricket;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use cricket;
+Database changed
+mysql> create table cricket(name char(20), age int(43), country char(32));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc cricket;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(20) | YES  |     | NULL    |       |
+| age     | int(43)  | YES  |     | NULL    |       |
+| country | char(32) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+3 rows in set (0.04 sec)
+mysql> insert into cricket value('sai',234,12);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into cricket value('teja',345,21);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into cricket value('sree',456,76);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select *from cricket;
++------+------+---------+
+| name | age  | country |
++------+------+---------+
+| sai  |  234 | 12      |
+| teja |  345 | 21      |
+| sree |  456 | 76      |
++------+------+---------+
+3 rows in set (0.01 sec)
