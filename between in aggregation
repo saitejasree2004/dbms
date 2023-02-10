@@ -1,0 +1,83 @@
+ create database marklist;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use marklist;
+Database changed
+mysql> create table marklist(name char(21),id int(31),age int(14));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc marklist;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| name  | char(21) | YES  |     | NULL    |       |
+| id    | int(31)  | YES  |     | NULL    |       |
+| age   | int(14)  | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+3 rows in set (0.06 sec)
+
+mysql> insert into marklist values('sai',12345,21);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into marklist values('teja',23456,13);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into marklist values('sree',34567,32);
+Query OK, 1 row affected (0.05 sec)
+mysql> select * from marklist;
++------+-------+------+
+| name | id    | age  |
++------+-------+------+
+| sai  | 12345 |   21 |
+| teja | 23456 |   13 |
+| sree | 34567 |   32 |
++------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select *from marklist where age between 10 and 20;
++------+-------+------+
+| name | id    | age  |
++------+-------+------+
+| teja | 23456 |   13 |
++------+-------+------+
+1 row in set (0.03 sec)
+mysql> select * from marklist where name in ('teja', 'sai');
++------+-------+------+
+| name | id    | age  |
++------+-------+------+
+| sai  | 12345 |   21 |
+| teja | 23456 |   13 |
++------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select MAX(age) from marklist;
++----------+
+| MAX(age) |
++----------+
+|       32 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> select AVG(age)AS 'Average Age:'from marklist;
++--------------+
+| Average Age: |
++--------------+
+|      22.0000 |
++--------------+
+1 row in set (0.03 sec)
+
+mysql> select Sum(Age)AS 'Sum of all ages:'from marklist;
++------------------+
+| Sum of all ages: |
++------------------+
+|               66 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(age)AS 'Total no.of elements:'from marklist;
++-----------------------+
+| Total no.of elements: |
++-----------------------+
+|                     3 |
++-----------------------+
+1 row in set (0.00 sec)
